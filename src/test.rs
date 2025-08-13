@@ -9,7 +9,7 @@ use soroban_sdk::{
 };
 
 fn create_token<'a>(e: &Env, admin: &Address) -> PerunTokenClient<'a> {
-    let token = PerunTokenClient::new(e, &e.register_contract(None, PerunToken {}));
+    let token = PerunTokenClient::new(e, &e.register(PerunToken, {}));
     token.initialize(admin, &7, &"name".into_val(e), &"symbol".into_val(e));
     token
 }
